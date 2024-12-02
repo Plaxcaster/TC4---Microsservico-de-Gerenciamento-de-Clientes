@@ -45,6 +45,16 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -63,5 +73,21 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<spring.profiles.active>dev</spring.profiles.active>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<spring.profiles.active>prod</spring.profiles.active>
+			</properties>
+		</profile>
+	</profiles>
 </project>
