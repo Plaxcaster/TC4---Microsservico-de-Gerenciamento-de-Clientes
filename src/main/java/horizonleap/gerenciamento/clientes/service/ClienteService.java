@@ -31,7 +31,7 @@ public class ClienteService {
 
     }
 
-    public ClienteModel updateFormaPagamento(Integer idCliente, String formaPagamento) {
+    public ClienteModel updateEndereco(Integer idCliente) {
         var cliente = clienteRepository.findById(idCliente).get();
         return clienteRepository.save(cliente);
     }
