@@ -1,5 +1,7 @@
 horizonleap\gerenciamento\clientes\repository\ClienteRepository.class
 horizonleap\gerenciamento\clientes\service\ClienteService.class
+horizonleap\gerenciamento\clientes\controller\ClienteController.class
 horizonleap\gerenciamento\clientes\GerenciamentoClientesApplication.class
+horizonleap\gerenciamento\clientes\controller\CadastrarCliente.class
 horizonleap\gerenciamento\clientes\repository\DadosClienteDTO.class
 horizonleap\gerenciamento\clientes\model\ClienteModel.class
