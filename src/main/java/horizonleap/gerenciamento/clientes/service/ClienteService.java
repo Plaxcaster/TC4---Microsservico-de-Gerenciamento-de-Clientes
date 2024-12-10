@@ -7,8 +7,10 @@ import horizonleap.gerenciamento.clientes.gateway.ClienteEventGateway;
 import horizonleap.gerenciamento.clientes.model.ClienteModel;
 import horizonleap.gerenciamento.clientes.repository.ClienteRepository;
 import horizonleap.gerenciamento.clientes.repository.DadosClienteDTO;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
+@Slf4j
 public class ClienteService {
     @Autowired
     private ClienteRepository clienteRepository;
@@ -17,10 +19,11 @@ public class ClienteService {
 
     public ClienteModel save(String nome, String endereco, String infoContato) {
 
-        var cliente = new ClienteModel(nome, endereco, infoContato);
-        gateway.clienteCriado(cliente);
+        ClienteModel clienteSemId = new ClienteModel(nome, endereco, infoContato);
 
-        return clienteRepository.save(cliente);
+        var cliente = clienteRepository.save(clienteSemId);
+        gateway.clienteCriado(cliente);
+        return cliente;
     }
 
     public ClienteModel busca(int id_cliente) {
@@ -35,10 +38,14 @@ public class ClienteService {
 
     }
 
-    public ClienteModel updateEndereco(Integer idCliente) {
+    public ClienteModel updateEndereco(Integer idCliente, String endereco) {
         var cliente = clienteRepository.findById(idCliente).get();
+
+        cliente.setEndereco(endereco);
+        cliente = clienteRepository.saveAndFlush(cliente);
+        
         gateway.clienteAlterado(cliente);
-        return clienteRepository.save(cliente);
+        return cliente;
     }
 
 }

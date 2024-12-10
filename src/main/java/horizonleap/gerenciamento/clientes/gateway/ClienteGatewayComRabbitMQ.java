@@ -7,9 +7,11 @@ import org.springframework.stereotype.Component;
 import horizonleap.gerenciamento.clientes.config.StreamProperties;
 import horizonleap.gerenciamento.clientes.model.ClienteModel;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
-@Component
 @RequiredArgsConstructor
+@Component
+@Slf4j
 public class ClienteGatewayComRabbitMQ implements ClienteEventGateway{
 
     @Autowired
@@ -21,6 +23,7 @@ public class ClienteGatewayComRabbitMQ implements ClienteEventGateway{
     public void clienteCriado(ClienteModel cliente) {
         bridge.send(properties.getClienteCriadoChanel(), cliente);
     }
+
     @Override
     public void clienteAlterado(ClienteModel cliente) {
         bridge.send(properties.getClienteAlteradoChanel(), cliente);
