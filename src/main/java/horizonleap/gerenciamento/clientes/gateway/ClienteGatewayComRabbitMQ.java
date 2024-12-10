@@ -22,5 +22,6 @@ public class ClienteGatewayComRabbitMQ implements ClienteEventGateway{
     @Override
     public void clienteCriado(ClienteModel cliente) {
         bridge.send(properties.getClienteCriadoChanel(), cliente);
+        log.info("Enviada uma mensagem");
     }
 }

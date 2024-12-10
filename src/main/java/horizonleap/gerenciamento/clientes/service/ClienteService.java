@@ -5,8 +5,10 @@ import org.springframework.stereotype.Service;
 
 import horizonleap.gerenciamento.clientes.gateway.ClienteEventGateway;
 import horizonleap.gerenciamento.clientes.model.ClienteModel;
+import horizonleap.gerenciamento.clientes.model.EnderecoUF;
 import horizonleap.gerenciamento.clientes.repository.ClienteRepository;
 import horizonleap.gerenciamento.clientes.repository.DadosClienteDTO;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Service
@@ -17,9 +19,9 @@ public class ClienteService {
     @Autowired
     private ClienteEventGateway gateway;
 
-    public ClienteModel save(String nome, String endereco, String infoContato) {
+    public ClienteModel save(String nome, String endereco, String infoContato, String cpf, EnderecoUF uf) {
 
-        ClienteModel clienteSemId = new ClienteModel(nome, endereco, infoContato);
+        ClienteModel clienteSemId = new ClienteModel(nome, endereco, infoContato, cpf, uf);
 
         var cliente = clienteRepository.save(clienteSemId);
         gateway.clienteCriado(cliente);
