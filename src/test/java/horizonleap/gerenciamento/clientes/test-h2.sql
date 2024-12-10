@@ -8,11 +8,6 @@ CREATE TABLE IF NOT EXISTS cliente (
     endereco_uf VARCHAR(2)
 );
 
--- Check if the new columns exist, and if not, add them
-ALTER TABLE cliente DROP COLUMN IF EXISTS enderecoUF;
-ALTER TABLE cliente ADD COLUMN IF NOT EXISTS cpf VARCHAR(11);
-ALTER TABLE cliente ADD COLUMN IF NOT EXISTS endereco_uf VARCHAR(2);
-
 -- Insert initial data into the table
 INSERT INTO cliente (endereco, info_contato, nome, cpf, endereco_uf) VALUES
 ('Sobradinho', '61993253661', 'Gustavo Alves', '12345678901', 'DF'),

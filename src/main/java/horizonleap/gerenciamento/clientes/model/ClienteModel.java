@@ -1,8 +1,9 @@
-
 package horizonleap.gerenciamento.clientes.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType; 
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,20 +20,32 @@ public class ClienteModel {
 
     @Column
     private String nome;
+
     @Column
     private String endereco;
+
     @Column
     private String infoContato;
 
+    @Column
+    private String cpf;
+
+    @Enumerated(EnumType.STRING) 
+    @Column(name = "endereco_uf")
+    private EnderecoUF enderecoUF;
 
     public ClienteModel() {
     }
 
-    public ClienteModel(String nome, String endereco, String infoContato) {
+    public ClienteModel(String nome, String endereco, String infoContato, String cpf, EnderecoUF enderecoUF) {
         this.nome = nome;
         this.endereco = endereco;
         this.infoContato = infoContato;
+        this.cpf = cpf;
+        this.enderecoUF = enderecoUF;
     }
+
+    // Getters and Setters
 
     public int getId() {
         return id;
@@ -64,5 +77,21 @@ public class ClienteModel {
 
     public void setInfoContato(String infoContato) {
         this.infoContato = infoContato;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public EnderecoUF getEnderecoUF() {
+        return enderecoUF;
+    }
+
+    public void setEnderecoUF(EnderecoUF enderecoUF) {
+        this.enderecoUF = enderecoUF;
     }
 }
