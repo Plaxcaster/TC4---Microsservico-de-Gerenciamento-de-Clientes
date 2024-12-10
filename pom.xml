@@ -12,7 +12,8 @@
 	<artifactId>gerenciamento-clientes</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>gerenciamento-clientes</name>
-	<description>Microsserviço de Gerenciamento de Clientes para o TC4</description>	<url />
+	<description>Microsserviço de Gerenciamento de Clientes para o TC4</description>	
+	<url />
 	<licenses>
 		<license />
 	</licenses>

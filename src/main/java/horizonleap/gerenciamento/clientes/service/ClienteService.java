@@ -4,18 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import horizonleap.gerenciamento.clientes.model.ClienteModel;
+import horizonleap.gerenciamento.clientes.model.EnderecoUF;
 import horizonleap.gerenciamento.clientes.repository.ClienteRepository;
 import horizonleap.gerenciamento.clientes.repository.DadosClienteDTO;
-
 
 @Service
 public class ClienteService {
     @Autowired
     private ClienteRepository clienteRepository;
 
-    public ClienteModel save(String nome, String endereco, String infoContato) {
-        var cliente = new ClienteModel(nome, endereco, infoContato);
-
+    public ClienteModel save(String nome, String endereco, String infoContato, String cpf, EnderecoUF uf) {
+        ClienteModel cliente = new ClienteModel(nome, endereco, infoContato, cpf, uf);
         return clienteRepository.save(cliente);
     }
 
