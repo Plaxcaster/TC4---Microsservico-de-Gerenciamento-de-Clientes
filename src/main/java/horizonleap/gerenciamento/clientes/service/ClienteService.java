@@ -43,8 +43,8 @@ public class ClienteService {
 
         cliente.setEndereco(endereco);
         cliente = clienteRepository.saveAndFlush(cliente);
-        
-        gateway.clienteAlterado(cliente);
+
+        gateway.clienteCriado(cliente);
         return cliente;
     }
 

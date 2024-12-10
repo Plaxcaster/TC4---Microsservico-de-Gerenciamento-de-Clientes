@@ -42,7 +42,7 @@ public class ClienteController {
         try {
             Integer idCliente = Integer.valueOf(id_cliente);
 
-            ClienteModel cliente = service.updateEndereco(idCliente);
+            ClienteModel cliente = service.updateEndereco(idCliente, endereco);
             return ResponseEntity.ok(cliente);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(new ClienteModel());
