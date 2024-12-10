@@ -3,18 +3,22 @@ package horizonleap.gerenciamento.clientes.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import horizonleap.gerenciamento.clientes.gateway.ClienteEventGateway;
 import horizonleap.gerenciamento.clientes.model.ClienteModel;
 import horizonleap.gerenciamento.clientes.repository.ClienteRepository;
 import horizonleap.gerenciamento.clientes.repository.DadosClienteDTO;
-
 
 @Service
 public class ClienteService {
     @Autowired
     private ClienteRepository clienteRepository;
+    @Autowired
+    private ClienteEventGateway gateway;
 
     public ClienteModel save(String nome, String endereco, String infoContato) {
+
         var cliente = new ClienteModel(nome, endereco, infoContato);
+        gateway.clienteCriado(cliente);
 
         return clienteRepository.save(cliente);
     }
@@ -33,6 +37,7 @@ public class ClienteService {
 
     public ClienteModel updateEndereco(Integer idCliente) {
         var cliente = clienteRepository.findById(idCliente).get();
+        gateway.clienteAlterado(cliente);
         return clienteRepository.save(cliente);
     }
 
