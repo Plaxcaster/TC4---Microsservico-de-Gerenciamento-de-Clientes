@@ -1,3 +1,4 @@
 horizonleap\gerenciamento\clientes\GerenciamentoClientesApplicationTests.class
+horizonleap\gerenciamento\clientes\ClienteIntegrationTest.class
 horizonleap\gerenciamento\clientes\ClienteControllerTest.class
 horizonleap\gerenciamento\clientes\ClienteServiceTest.class
