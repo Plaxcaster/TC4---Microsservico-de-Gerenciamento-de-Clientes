@@ -5,3 +5,4 @@ horizonleap\gerenciamento\clientes\repository\DadosClienteDTO.class
 horizonleap\gerenciamento\clientes\model\ClienteModel.class
 horizonleap\gerenciamento\clientes\service\ClienteService.class
 horizonleap\gerenciamento\clientes\controller\CadastrarCliente.class
+horizonleap\gerenciamento\clientes\model\EnderecoUF.class
